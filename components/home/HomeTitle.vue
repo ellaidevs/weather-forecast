@@ -2,7 +2,7 @@
   <div class="flex flex-col justify-center items-center h-screen">
     <div class="tailwindccsok text-center">
       <h1 class="font-black text-9xl bg-gray-100 mix-blend-lighten uppercase">
-        Weather Forecast <br />
+        {{ title }}
       </h1>
     </div>
   </div>
@@ -11,6 +11,7 @@
 <script>
 export default {
   name: "HomeTitle",
+  props: ["title"],
 };
 </script>
 
