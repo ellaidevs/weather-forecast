@@ -2,15 +2,7 @@
 <template>
   <div>
     <div class="bg-gray-100 min-h-screen py-32 px-10">
-      <div class="flex flex-col justify-center items-center h-screen">
-        <div class="tailwindccsok text-center">
-          <h1
-            class="font-black text-9xl bg-gray-100 mix-blend-lighten uppercase"
-          >
-            Weather Forecast <br />
-          </h1>
-        </div>
-      </div>
+      <HomeTitle />
       <div
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 cursor-pointer"
       >
@@ -45,8 +37,12 @@
 </template>
 
 <script>
+import HomeTitle from "./HomeTitle.vue";
 export default {
   name: "NuxtTutorial",
+  components: {
+    HomeTitle,
+  },
   data() {
     return {
       cities: [
@@ -86,11 +82,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.tailwindccsok {
-  background-image: url("https://source.unsplash.com/blue/");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-</style>
