@@ -3,6 +3,7 @@
   <div>
     <div class="bg-gray-100 min-h-screen py-32 px-10">
       <HomeTitle title="Weather Forecast" />
+      <SearchCity :cities="cities" />
       <CitiesGrid :cities="cities" />
     </div>
   </div>
@@ -11,17 +12,19 @@
 <script>
 import HomeTitle from "./HomeTitle.vue";
 import CitiesGrid from "./CitiesGrid.vue";
+import SearchCity from "./SearchCity.vue";
 export default {
   name: "NuxtTutorial",
   components: {
     HomeTitle,
     CitiesGrid,
+    SearchCity,
   },
   data() {
     return {
       cities: [
-        "Kuala Lumpur",
         "Johor Bahru",
+        "Kuala Lumpur",
         "Kuching",
         "Kota Kinabalu",
         "Ipoh",
@@ -29,7 +32,7 @@ export default {
         "Selangor",
         "Kuantan",
         "Kedah",
-        "Seremeban",
+        "Seremban",
         "Alor Setar",
         "Kuala Terengganu",
         "Shah Alam",
