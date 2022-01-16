@@ -17,7 +17,7 @@ export default {
 
 <style scoped>
 .tailwindccsok {
-  background-image: url("https://source.unsplash.com/blue/");
+  background-image: url("~@/assets/pastel-green-gradient.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
 }

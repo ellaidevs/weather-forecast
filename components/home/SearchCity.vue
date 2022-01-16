@@ -1,11 +1,11 @@
 <template>
   <div class="container mx-auto">
     <div class="flex justify-center px-6 my-12">
-      <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg">
+      <div class="tailwindccsok w-full lg:w-7/12 p-5 bg-blue-100 rounded-lg">
         <h3 class="pt-4 text-2xl text-center italic">
           Find out weather for any city!
         </h3>
-        <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+        <form class="px-8 pt-6 pb-8 mb-4 rounded">
           <div class="mb-4">
             <label
               class="block mb-2 text-sm font-bold text-gray-700"
@@ -58,14 +58,27 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   props: ["cities"],
   data() {
     return {
       currCity: "Kuala Lumpur",
+      currCityData: [],
+      viewAllCities: false,
     };
   },
-  //   mounted: {},
+  async created() {
+    try {
+      const res = await axios.get(
+        "https://api.openweathermap.org/data/2.5/weather?q=Kuala Lumpur &appid=a14513b77e2e28faa7e6f69c22f74bcb"
+      );
+      this.currCityData = res.data;
+      console.log("currCityData", this.currCityData);
+    } catch (e) {
+      console.log(e);
+    }
+  },
   methods: {
     getCityWeather() {
       console.log("check current city", this.currCity);
@@ -74,4 +87,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.tailwindccsok {
+  /* background-image: url("~@/assets/pastel-green-gradient.jpeg"); */
+  /* background: rgb(182, 241, 225); */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+</style>
