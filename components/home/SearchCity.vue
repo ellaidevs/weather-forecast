@@ -5,6 +5,7 @@
         <h3 class="pt-4 text-2xl text-center italic">
           Find out weather for any city!
         </h3>
+        <h1>{{ this.$store.state.counter }}</h1>
         <form class="px-8 pt-6 pb-8 mb-4 rounded">
           <div class="mb-4">
             <label
@@ -51,6 +52,12 @@
               Get forecast for all cities!
             </button>
           </div>
+          <ol v-for="cat in categories" :key="cat">
+            <li>
+              {{ cat }}
+            </li>
+          </ol>
+          <h2>{{ setName }}</h2>
         </form>
       </div>
     </div>
@@ -59,11 +66,12 @@
 
 <script>
 import axios from "axios";
+import { mapState } from "vuex";
 export default {
   props: ["cities"],
   data() {
     return {
-      currCity: "Kuala Lumpur",
+      currCity: this.$store.state.selectedCity,
       currCityData: [],
       viewAllCities: false,
     };
@@ -79,9 +87,17 @@ export default {
       console.log(e);
     }
   },
+  computed: {
+    setName() {
+      return "hello ella";
+    },
+    ...mapState(["categories"]),
+  },
   methods: {
     getCityWeather() {
+      console.log("check selected city", this.$store.state.selectedCity);
       console.log("check current city", this.currCity);
+      //once clicked.. call mutation and set the vuex state == currCity
     },
   },
 };
