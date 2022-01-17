@@ -47,9 +47,7 @@
             <p class="city-desc text-gray-700 my-2 hover-text-900">
               {{ getWeather }}
             </p>
-            <p>{{ getWeatherIcon }}</p>
             <img :src="getWeatherIcon" :alt="getWeather" class="weather-icon" />
-            <!-- <h1>counter{{ getCounter }}</h1> -->
           </div>
         </nuxt-link>
       </div>

@@ -14,13 +14,6 @@
             >
               Search
             </label>
-
-            <!-- <select v-model="form.access">
-                <option v-for="access in accessList" v-bind:key="access">
-                  {{ access }}
-                </option>
-              </select> -->
-
             <select
               v-model="currCity"
               class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -68,7 +61,6 @@ export default {
       currCity: this.$store.state.selectedCity,
       currCityData: [],
       viewAllCities: false,
-      //do not combine into one word, if city name is more than one word e.g. Correct: Kuala lumpur, Wrong: KualaLumpur
     };
   },
   async created() {
@@ -80,12 +72,10 @@ export default {
       console.log("currCityData", this.currCityData);
 
       const weather = res.data.weather[0].description;
-      const weatherIcon = res.data.weather[0].description;
+      const weatherIcon = res.data.weather[0].icon;
 
       this.$store.commit("SET_WEATHER", weather);
-      this.$store.commit("SET_WEATHER", weatherIcon);
-      console.log("before commit", this.$store.state.counter);
-      this.$store.commit("INCREMENT_COUNTER", 10);
+      this.$store.commit("SET_WEATHER_ICON", weatherIcon);
     } catch (e) {
       console.log(e);
     }
@@ -95,10 +85,9 @@ export default {
   },
   methods: {
     getCityWeather() {
-      console.log("check selected city", this.$store.state.selectedCity);
-      console.log("check current city", this.currCity);
-
-      console.log("checking weather from vuex", this.$store.state.weather);
+      // console.log("check selected city", this.$store.state.selectedCity);
+      // console.log("check current city", this.currCity);
+      // console.log("checking weather from vuex", this.$store.state.weather);
       //once clicked.. call mutation and set the vuex state == currCity
     },
   },
