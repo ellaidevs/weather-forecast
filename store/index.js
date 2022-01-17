@@ -1,18 +1,18 @@
 export const state = () => ({
-  selectedCity: "Kuala Lumpur",
-  categories: [
-    "sustainability",
-    "nature",
-    "animal welfare",
-    "housing",
-    "education",
-    "food",
-    "community",
-  ],
+  selectedCity: "kedah",
+  weather: "",
+  weatherIcon: "",
+  counter: 1,
 });
 
 export const mutations = {
-  increment(state) {
-    state.counter++;
+  SET_WEATHER(state, value) {
+    state.weather = value;
+  },
+  SET_WEATHER_ICON(state, value) {
+    state.weatherIcon = value;
+  },
+  INCREMENT_COUNTER(state, value) {
+    state.counter += value;
   },
 };

@@ -52,12 +52,6 @@
               Get forecast for all cities!
             </button>
           </div>
-          <ol v-for="cat in categories" :key="cat">
-            <li>
-              {{ cat }}
-            </li>
-          </ol>
-          <h2>{{ setName }}</h2>
         </form>
       </div>
     </div>
@@ -74,29 +68,37 @@ export default {
       currCity: this.$store.state.selectedCity,
       currCityData: [],
       viewAllCities: false,
+      //do not combine into one word, if city name is more than one word e.g. Correct: Kuala lumpur, Wrong: KualaLumpur
     };
   },
   async created() {
     try {
       const res = await axios.get(
-        "https://api.openweathermap.org/data/2.5/weather?q=Kuala Lumpur &appid=a14513b77e2e28faa7e6f69c22f74bcb"
+        `https://api.openweathermap.org/data/2.5/weather?q=${this.$store.state.selectedCity}&appid=a14513b77e2e28faa7e6f69c22f74bcb`
       );
       this.currCityData = res.data;
       console.log("currCityData", this.currCityData);
+
+      const weather = res.data.weather[0].description;
+      const weatherIcon = res.data.weather[0].description;
+
+      this.$store.commit("SET_WEATHER", weather);
+      this.$store.commit("SET_WEATHER", weatherIcon);
+      console.log("before commit", this.$store.state.counter);
+      this.$store.commit("INCREMENT_COUNTER", 10);
     } catch (e) {
       console.log(e);
     }
   },
   computed: {
-    setName() {
-      return "hello ella";
-    },
     ...mapState(["categories"]),
   },
   methods: {
     getCityWeather() {
       console.log("check selected city", this.$store.state.selectedCity);
       console.log("check current city", this.currCity);
+
+      console.log("checking weather from vuex", this.$store.state.weather);
       //once clicked.. call mutation and set the vuex state == currCity
     },
   },
@@ -105,8 +107,6 @@ export default {
 
 <style>
 .tailwindccsok {
-  /* background-image: url("~@/assets/pastel-green-gradient.jpeg"); */
-  /* background: rgb(182, 241, 225); */
   background-size: cover;
   background-repeat: no-repeat;
 }

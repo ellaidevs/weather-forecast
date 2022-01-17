@@ -44,12 +44,12 @@
               Kuala Lumpur
             </h1>
 
-            <p class="city-desc text-gray-700 my-2 hover-text-900">Clouds</p>
-            <img
-              src="https://openweathermap.org/img/w/03d.png"
-              alt="somwething"
-              class="weather-icon"
-            />
+            <p class="city-desc text-gray-700 my-2 hover-text-900">
+              {{ getWeather }}
+            </p>
+            <p>{{ getWeatherIcon }}</p>
+            <img :src="getWeatherIcon" :alt="getWeather" class="weather-icon" />
+            <!-- <h1>counter{{ getCounter }}</h1> -->
           </div>
         </nuxt-link>
       </div>
@@ -58,12 +58,28 @@
 </template>
 
 <script>
+// import { mapState } from "vuex";
 export default {
   name: "CitiesComponent",
   props: ["cities"],
+  computed: {
+    getWeather() {
+      return this.$store.state.weather;
+    },
+    getWeatherIcon() {
+      const code = this.$store.state.weatherIcon;
+      return `https://openweathermap.org/img/w/${code}.png`;
+    },
+  },
+
   data() {
     return {
       randomImgUrl: "https://source.unsplash.com/random/",
+      // iconUrl: `https://openweathermap.org/img/w/${this.$store.state.weatherIcon}.png`,01n
+      iconUrl: `https://openweathermap.org/img/w/01n.png`,
+
+      weather: this.$store.state.weather,
+
       listAllCities: false,
     };
   },
