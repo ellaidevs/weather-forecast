@@ -72,6 +72,9 @@ export default {
       const weather = res.data.weather[0].description;
       const weatherIcon = res.data.weather[0].icon;
 
+      console.log("res weather", weather);
+      console.log("res weatherIcon", weatherIcon);
+
       this.$store.commit("SET_WEATHER", weather);
       this.$store.commit("SET_WEATHER_ICON", weatherIcon);
     } catch (e) {
@@ -82,14 +85,18 @@ export default {
     ...mapState(["categories"]),
   },
   methods: {
-    getCityWeather() {
-      console.log("currCity", this.currCity);
-
+    async getCityWeather() {
       this.$store.commit("SET_CURRENT_CITY", this.currCity);
-      console.log("check selected city", this.$store.state.selectedCity);
-      // console.log("check current city", this.currCity);
-      // console.log("checking weather from vuex", this.$store.state.weather);
-      //once clicked.. call mutation and set the vuex state == currCity
+
+      const res = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${this.$store.state.selectedCity}&appid=a14513b77e2e28faa7e6f69c22f74bcb`
+      );
+
+      const weather = res.data.weather[0].description;
+      const weatherIcon = res.data.weather[0].icon;
+
+      this.$store.commit("SET_WEATHER", weather);
+      this.$store.commit("SET_WEATHER_ICON", weatherIcon);
     },
   },
 };
