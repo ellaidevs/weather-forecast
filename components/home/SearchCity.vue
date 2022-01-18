@@ -72,13 +72,10 @@ export default {
       const weather = res.data.weather[0].description;
       const weatherIcon = res.data.weather[0].icon;
 
-      console.log("res weather", weather);
-      console.log("res weatherIcon", weatherIcon);
-
       this.$store.commit("SET_WEATHER", weather);
       this.$store.commit("SET_WEATHER_ICON", weatherIcon);
-    } catch (e) {
-      console.log(e);
+    } catch (err) {
+      console.log(err);
     }
   },
   computed: {
@@ -86,17 +83,21 @@ export default {
   },
   methods: {
     async getCityWeather() {
-      this.$store.commit("SET_CURRENT_CITY", this.currCity);
+      try {
+        this.$store.commit("SET_CURRENT_CITY", this.currCity);
 
-      const res = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${this.$store.state.selectedCity}&appid=a14513b77e2e28faa7e6f69c22f74bcb`
-      );
+        const res = await axios.get(
+          `https://api.openweathermap.org/data/2.5/weather?q=${this.$store.state.selectedCity}&appid=a14513b77e2e28faa7e6f69c22f74bcb`
+        );
 
-      const weather = res.data.weather[0].description;
-      const weatherIcon = res.data.weather[0].icon;
+        const weather = res.data.weather[0].description;
+        const weatherIcon = res.data.weather[0].icon;
 
-      this.$store.commit("SET_WEATHER", weather);
-      this.$store.commit("SET_WEATHER_ICON", weatherIcon);
+        this.$store.commit("SET_WEATHER", weather);
+        this.$store.commit("SET_WEATHER_ICON", weatherIcon);
+      } catch (err) {
+        console.log(err);
+      }
     },
   },
 };
