@@ -41,7 +41,7 @@
             <h1
               class="single-card-title md:text-1xl text-xl hover:text-indigo-600 transition duration-200 font-bold text-gray-900"
             >
-              Kuala Lumpur
+              {{ getCityName }}
             </h1>
 
             <p class="city-desc text-gray-700 my-2 hover-text-900">
@@ -56,11 +56,14 @@
 </template>
 
 <script>
-// import { mapState } from "vuex";
+import { mapState } from "vuex";
 export default {
   name: "CitiesComponent",
   props: ["cities"],
   computed: {
+    getCityName() {
+      return this.$store.state.selectedCity;
+    },
     getWeather() {
       return this.$store.state.weather;
     },

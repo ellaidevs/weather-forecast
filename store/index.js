@@ -1,5 +1,5 @@
 export const state = () => ({
-  selectedCity: "kedah",
+  selectedCity: "Kuala Lumpur",
   weather: "",
   weatherIcon: "",
 });
@@ -10,5 +10,8 @@ export const mutations = {
   },
   SET_WEATHER_ICON(state, value) {
     state.weatherIcon = value;
+  },
+  SET_CURRENT_CITY(state, value) {
+    state.selectedCity = value;
   },
 };

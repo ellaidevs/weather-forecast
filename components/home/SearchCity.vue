@@ -68,8 +68,6 @@ export default {
       const res = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${this.$store.state.selectedCity}&appid=a14513b77e2e28faa7e6f69c22f74bcb`
       );
-      this.currCityData = res.data;
-      console.log("currCityData", this.currCityData);
 
       const weather = res.data.weather[0].description;
       const weatherIcon = res.data.weather[0].icon;
@@ -85,7 +83,10 @@ export default {
   },
   methods: {
     getCityWeather() {
-      // console.log("check selected city", this.$store.state.selectedCity);
+      console.log("currCity", this.currCity);
+
+      this.$store.commit("SET_CURRENT_CITY", this.currCity);
+      console.log("check selected city", this.$store.state.selectedCity);
       // console.log("check current city", this.currCity);
       // console.log("checking weather from vuex", this.$store.state.weather);
       //once clicked.. call mutation and set the vuex state == currCity
