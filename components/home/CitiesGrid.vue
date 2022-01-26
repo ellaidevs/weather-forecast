@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-if="listAllCities"
+      v-if="getDisplayAllCity"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 cursor-pointer"
     >
       <div
@@ -71,15 +71,16 @@ export default {
       const code = this.$store.state.weatherIcon;
       return `https://openweathermap.org/img/w/${code}.png`;
     },
+    getDisplayAllCity() {
+      return this.$store.state.displayAllCity;
+    },
   },
 
   data() {
     return {
       randomImgUrl: "https://source.unsplash.com/random/",
-      // iconUrl: `https://openweathermap.org/img/w/${this.$store.state.weatherIcon}.png`,01n
-      iconUrl: `https://openweathermap.org/img/w/01n.png`,
 
-      weather: this.$store.state.weather,
+      // weather: this.$store.state.weather,
 
       listAllCities: false,
     };

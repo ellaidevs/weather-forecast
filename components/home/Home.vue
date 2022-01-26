@@ -2,7 +2,7 @@
 <template>
   <div>
     <div class="bg-gray-100 min-h-screen py-32 px-10">
-      <HomeTitle title="Weather Forecast" />
+      <SearchCardTitle title="Weather Forecast" />
       <SearchCity :cities="cities" />
       <CitiesGrid :cities="cities" />
     </div>
@@ -10,13 +10,13 @@
 </template>
 
 <script>
-import HomeTitle from "./HomeTitle.vue";
+import SearchCardTitle from "./SearchCardTitle.vue";
 import CitiesGrid from "./CitiesGrid.vue";
 import SearchCity from "./SearchCity.vue";
 export default {
   name: "NuxtTutorial",
   components: {
-    HomeTitle,
+    SearchCardTitle,
     CitiesGrid,
     SearchCity,
   },
@@ -25,6 +25,7 @@ export default {
       cities: [
         "Johor Bahru",
         "Kuala Lumpur",
+        "Puchong",
         "Kuching",
         "Kota Kinabalu",
         "Ipoh",

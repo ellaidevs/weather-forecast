@@ -2,6 +2,7 @@ export const state = () => ({
   selectedCity: "Kuala Lumpur",
   weather: "",
   weatherIcon: "",
+  displayAllCity: false,
 });
 
 export const mutations = {
@@ -13,5 +14,8 @@ export const mutations = {
   },
   SET_CURRENT_CITY(state, value) {
     state.selectedCity = value;
+  },
+  SET_DISPLAY_ALL_CITY(state, value) {
+    state.displayAllCity = value;
   },
 };

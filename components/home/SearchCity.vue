@@ -36,10 +36,12 @@
             </button>
           </div>
           <hr class="mb-6 border-t" />
+          <p class="mb-6 text-center">or</p>
+          <!-- you need to request and get info for all cities, but please be aware of overloading, throttle -->
           <div class="mb-6 text-center">
             <button
-              @click="getCityWeather"
-              class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+              @click="getAllCityWeather"
+              class="w-full px-4 py-2 font-bold text-blue-500 hover:text-blue-800 focus:outline-none focus:shadow-outline"
               type="button"
             >
               Get forecast for all cities!
@@ -84,6 +86,7 @@ export default {
   methods: {
     async getCityWeather() {
       try {
+        this.$store.commit("SET_DISPLAY_ALL_CITY", false);
         this.$store.commit("SET_CURRENT_CITY", this.currCity);
 
         const res = await axios.get(
@@ -98,6 +101,9 @@ export default {
       } catch (err) {
         console.log(err);
       }
+    },
+    getAllCityWeather() {
+      this.$store.commit("SET_DISPLAY_ALL_CITY", true);
     },
   },
 };

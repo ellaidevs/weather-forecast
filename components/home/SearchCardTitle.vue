@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: "HomeTitle",
+  name: "SearchCardTitle",
   props: ["title"],
 };
 </script>
