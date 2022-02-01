@@ -90,7 +90,8 @@ export default {
         this.$store.commit("SET_CURRENT_CITY", this.currCity);
 
         const res = await axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${this.$store.state.selectedCity}&appid=a14513b77e2e28faa7e6f69c22f74bcb`
+          `https://api.openweathermap.org/data/2.5/weather?q=${this.$store.state.selectedCity}&appid=${process.env.WEATHER_OPEN_API_KEY}
+`
         );
 
         const weather = res.data.weather[0].description;
