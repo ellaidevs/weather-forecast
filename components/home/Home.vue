@@ -38,7 +38,7 @@ export default {
         "Kuala Terengganu",
         "Shah Alam",
         "Johor",
-        "Petaling Jaya 17",
+        "Petaling Jaya",
         "Klang",
         "Sungai Petani",
         "Putrajaya",
