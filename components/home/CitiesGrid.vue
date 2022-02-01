@@ -4,6 +4,7 @@
       v-if="getDisplayAllCity"
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-x-10 xl-grid-cols-4 gap-y-10 gap-x-6 cursor-pointer"
     >
+      <SortBy />
       <div
         @click="getCityWeather(city)"
         v-for="city in cities"
