@@ -67,3 +67,25 @@ More information about the usage of this directory in [the documentation](https:
 This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+
+### Credits 
+Kuala Lumpur - Photo by Umar Mukhtar on Unsplash 
+Johor Bahru - Photo by Eldines Hoo on Unsplash 
+Puchong - Photo by Nax on Unsplash
+Kuching - Photo by S.Ratanak on Unsplash
+Kota Kinabalu - Photo by Ling Tang on Unsplash
+Ipoh -Photo by xandreaswork on Unsplash
+George Town - Photo by Nimalan nims on Unsplash
+Selangor - Photo by Danist Soh on Unsplash
+Kuantan - Photo by Izuddin Helmi Adnan on Unsplash
+Kedah - Photo by Muhaimin Mohd on Unsplash
+Seremban - Photo by Afdhal N. on Unsplash
+Alor Setar - Photo by Alex Bunday on Unsplash
+Kuala Terengganu - Photo by faiz zakaria on Unsplash
+Shah Alam - Photo by Izuddin Helmi Adnan on Unsplash
+Johor - Photo by Alfred on Unsplash
+Petaling Jaya - Photo by Alfred on Unsplash
+Klang - Photo by Pavi Kunusilin on Unsplash
+Sungai Petani - Photo by Muhaimin Mohd on Unsplash
+Putrajaya - Photo by Ishan @seefromthesky on Unsplash
+Melaka - Photo by Fred Rivett on Unsplash
