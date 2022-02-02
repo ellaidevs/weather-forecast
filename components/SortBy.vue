@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white py-6 flex flex-col justify-center sm:py-12">
+  <div class="flex flex-col justify-center">
     <div class="flex items-center justify-center p-12">
       <div class="relative inline-block text-left dropdown">
         <span class="rounded-md shadow-sm"
