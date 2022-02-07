@@ -74,6 +74,8 @@ export default {
       const weather = res.data.weather[0].description;
       const weatherIcon = res.data.weather[0].icon;
 
+      console.log("check wether icon first call", weatherIcon);
+
       this.$store.commit("SET_WEATHER", weather);
       this.$store.commit("SET_WEATHER_ICON", weatherIcon);
     } catch (err) {

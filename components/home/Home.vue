@@ -11,7 +11,7 @@
 
 <script>
 import SearchCardTitle from "./SearchCardTitle.vue";
-import CitiesGrid from "./CitiesGrid.vue";
+import CitiesGrid from "./Cities/CitiesGrid.vue";
 import SearchCity from "./SearchCity.vue";
 export default {
   name: "NuxtTutorial",
